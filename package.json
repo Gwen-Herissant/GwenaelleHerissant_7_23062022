@@ -1,0 +1,22 @@
+{
+  "name": "p7_code",
+  "version": "1.0.0",
+  "description": "Open Classrooms - Projet #7",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gwen-Herissant/GwenaelleHerissant_7_23062022.git"
+  },
+  "author": "g.herissant@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gwen-Herissant/GwenaelleHerissant_7_23062022/issues"
+  },
+  "homepage": "https://github.com/Gwen-Herissant/GwenaelleHerissant_7_23062022#readme",
+  "dependencies": {
+    "bootstrap": "^4.6.1"
+  }
+}
