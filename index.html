@@ -5,15 +5,191 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Les Petits Plats</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&Lato:wght@400;700&family=Roboto&display=swap"
     rel="stylesheet">
 </head>
 
 <body>
+
+  <header class="d-flex flex-column justify-content-center align-items-center mb-3">
+      <img src="/assets/logo/logo.svg" alt="Logo" class="logo mb-2">
+      <h1 class="dmsans-700">Les petits plats</h1>          
+  </header>
+
+  <section id="search-filter-section">
+
+    <div class="search d-flex mb-4" aria-label="barre de recherche">
+      <input type="text" placeholder="Rechercher une recette..." class="search-bar rounded-left p-4">
+      <button class="btn search-btn"><i class="search-icon fa-solid fa-magnifying-glass"></i></button>
+    </div>
+
+    <div class="tags d-flex mb-3">
+      <div class="single-tag d-flex align-items-center rounded">
+        <p class="tag-text lato-700 text-white">Coco</p>
+        <button class="btn tag-btn mb-1"><i class="close-icon text-white fa-regular fa-circle-xmark"></i></button>
+      </div>
+    </div>
+
+    <div class="select-menus d-flex">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Rechercher un ingrédient" aria-label="Text input with dropdown button">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">Ingrédients</button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <section id="results-section" class="container-fluid p-0">
+
+    <div class="row">
+
+      <div class="col-4 pr-4">
+
+        <div class="card">
+          <div class="card-img"></div>
+          <div class="card-body">
+            <div class="card-header d-flex justify-content-between mb-3">
+              <h5 class="lato-400">Limonade de coco</h5>
+              <div class="duration-wrapper d-flex align-items-center">
+                <i class="duration-icon fa-regular fa-clock mr-2"></i>
+                <p class="card-duration lato-700">10 min</p>
+              </div>
+            </div>
+            <div class="card-text d-flex justify-content-between">
+              <ul class="list-unstyled mr-4">
+                <li class="d-flex">
+                  <span class="lato-700">Ingédrient:&nbsp;</span>
+                  <p class="lato-400">quantité</p>
+                </li>
+                <li class="d-flex">
+                  <span class="lato-700">Ingédrient:&nbsp;</span>
+                  <p class="lato-400">quantité</p>
+                </li>
+                <li class="d-flex">
+                  <span class="lato-700">Ingédrient:&nbsp;</span>
+                  <p class="lato-400">quantité</p>
+                </li>
+                <li class="d-flex">
+                  <span class="lato-700">Ingédrient:&nbsp;</span>
+                  <p class="lato-400">quantité</p>
+                </li>
+                <li class="d-flex">
+                  <span class="lato-700">Ingédrient:&nbsp;</span>
+                  <p class="lato-400">quantité</p>
+                </li>
+              </ul>
+              <p class="roboto-400" style="width: 171px;">Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre.
+              Mixer jusqu'à avoir la consistence désirée.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-4 px-4">
+      
+        <div class="card">
+          <div class="card-img"></div>
+          <div class="card-body">
+            <div class="card-header d-flex justify-content-between mb-3">
+              <h5 class="lato-400">Limonade de coco</h5>
+              <div class="duration-wrapper d-flex align-items-center">
+                <i class="duration-icon fa-regular fa-clock mr-2"></i>
+                <p class="card-duration lato-700">10 min</p>
+              </div>
+            </div>
+            <div class="card-text d-flex justify-content-between">
+              <ul class="list-unstyled mr-4">
+                <li class="d-flex">
+                  <span class="lato-700">Ingédrient:&nbsp;</span>
+                  <p class="lato-400">quantité</p>
+                </li>
+                <li class="d-flex">
+                  <span class="lato-700">Ingédrient:&nbsp;</span>
+                  <p class="lato-400">quantité</p>
+                </li>
+                <li class="d-flex">
+                  <span class="lato-700">Ingédrient:&nbsp;</span>
+                  <p class="lato-400">quantité</p>
+                </li>
+                <li class="d-flex">
+                  <span class="lato-700">Ingédrient:&nbsp;</span>
+                  <p class="lato-400">quantité</p>
+                </li>
+                <li class="d-flex">
+                  <span class="lato-700">Ingédrient:&nbsp;</span>
+                  <p class="lato-400">quantité</p>
+                </li>
+              </ul>
+              <p class="roboto-400" style="width: 171px;">Mettre les glaçons à votre goût dans le blender, ajouter le lait, la
+                crème de coco, le jus de 2 citrons et le sucre.
+                Mixer jusqu'à avoir la consistence désirée.</p>
+            </div>
+          </div>
+        </div>
+      
+      </div>
+
+      <div class="col-4 pl-4">
+      
+        <div class="card">
+          <div class="card-img"></div>
+          <div class="card-body">
+            <div class="card-header d-flex justify-content-between mb-3">
+              <h5 class="lato-400">Limonade de coco</h5>
+              <div class="duration-wrapper d-flex align-items-center">
+                <i class="duration-icon fa-regular fa-clock mr-2"></i>
+                <p class="card-duration lato-700">10 min</p>
+              </div>
+            </div>
+            <div class="card-text d-flex justify-content-between">
+              <ul class="list-unstyled mr-4">
+                <li class="d-flex">
+                  <span class="lato-700">Ingédrient:&nbsp;</span>
+                  <p class="lato-400">quantité</p>
+                </li>
+                <li class="d-flex">
+                  <span class="lato-700">Ingédrient:&nbsp;</span>
+                  <p class="lato-400">quantité</p>
+                </li>
+                <li class="d-flex">
+                  <span class="lato-700">Ingédrient:&nbsp;</span>
+                  <p class="lato-400">quantité</p>
+                </li>
+                <li class="d-flex">
+                  <span class="lato-700">Ingédrient:&nbsp;</span>
+                  <p class="lato-400">quantité</p>
+                </li>
+                <li class="d-flex">
+                  <span class="lato-700">Ingédrient:&nbsp;</span>
+                  <p class="lato-400">quantité</p>
+                </li>
+              </ul>
+              <p class="roboto-400" style="width: 171px;">Mettre les glaçons à votre goût dans le blender, ajouter le lait, la
+                crème de coco, le jus de 2 citrons et le sucre.
+                Mixer jusqu'à avoir la consistence désirée.</p>
+            </div>
+          </div>
+        </div>
+      
+      </div>
+
+    </div>
+
+  </section>
   
 </body>
 
