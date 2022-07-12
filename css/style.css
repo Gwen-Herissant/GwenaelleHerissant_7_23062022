@@ -151,3 +151,12 @@ h1 {
 .card-text span {
   font-size: 12px;
 }
+
+
+/* Mobile */
+
+@media (max-width: 992px) {
+  body {
+    padding: 41px 15px;
+  }
+}
