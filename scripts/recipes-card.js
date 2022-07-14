@@ -17,7 +17,7 @@ class RecipeCard {
             </div>
           </div>
           <div class="card-text d-flex justify-content-between">
-              <ul class="list-unstyled">
+              <ul class="list-unstyled mr-4">
               ${this.recipe.ingredients.map(ingredient => `
                 <li class="d-flex">
                   <p class="lato-400">
