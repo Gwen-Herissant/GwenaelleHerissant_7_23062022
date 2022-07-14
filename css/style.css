@@ -12,6 +12,8 @@ html {
 body {
   margin: 0;
   padding: 42px 100px;
+  max-width: 1440px;
+  margin: auto;
 }
 
 h1, h2, h3, h4, h5, p {
@@ -124,6 +126,12 @@ h1 {
   background-color: #3282F7 !important;
 }
 
+#results-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+}
+
 .card-img {
   height: 178px;
   background-color: #C7BEBE;
@@ -154,9 +162,22 @@ h1 {
 
 
 /* Mobile */
+@media (max-width: 1200px) {
+  #results-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+}
 
 @media (max-width: 992px) {
   body {
     padding: 41px 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  #results-section {
+  display: block;
   }
 }
