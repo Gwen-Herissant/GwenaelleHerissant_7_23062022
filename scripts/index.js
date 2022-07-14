@@ -18,12 +18,12 @@ async function getRecipes() {
 
 
 async function displayRecipes(recipes) {
-  //const resultSection = document.querySelector('#results-section');
-  
+  let DOMcard = '';
   recipes.forEach(recipe => {
-    //console.log(recipe)
-    new RecipeCard(recipe);
+    let card = new RecipeCard(recipe);
+    DOMcard += card.buildCard();
   });
+  document.querySelector('#results-section').innerHTML = DOMcard;
 };
 
 async function init() {
