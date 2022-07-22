@@ -28,26 +28,47 @@
       <button class="btn search-btn"><i class="search-icon fa-solid fa-magnifying-glass"></i></button>
     </div>
 
-    <div class="tags d-flex mb-3">
+    <!-- <div class="tags d-flex mb-3">
       <div class="single-tag d-flex align-items-center rounded">
         <p class="tag-text lato-700 text-white">Coco</p>
         <button class="btn tag-btn mb-1"><i class="close-icon text-white fa-regular fa-circle-xmark"></i></button>
       </div>
-    </div>
+    </div> -->
 
-    <div class="select-menus d-flex">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Rechercher un ingrédient" aria-label="Text input with dropdown button">
-        <div class="input-group-append">
-          <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">Ingrédients</button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
+    <div class="select-menus d-sm-flex">
+
+      <div class="input-group combobox mb-3 mb-sm-0 mr-sm-3" data-type="ingrédients">
+        <div class="form">
+          <input type="text" class="form-control" placeholder="Ingrédients" data-placeholder="Rechercher un ingrédient" aria-label="Text input with dropdown button">
+          <div class="input-group-append">
+            <i class="fa-solid fa-chevron-down"></i>
           </div>
         </div>
+        <div class="list"></div>
       </div>
+
+      <div class="input-group combobox mb-3 mb-sm-0 mr-sm-3" data-type="appareils">
+        <div class="form">
+          <input type="text" class="form-control" placeholder="Appareils"
+            data-placeholder="Rechercher un appareil" aria-label="Text input with dropdown button">
+          <div class="input-group-append">
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+        </div>
+        <div class="list"></div>
+      </div>
+
+      <div class="input-group combobox" data-type="ustensiles">
+        <div class="form">
+          <input type="text" class="form-control" placeholder="Ustensiles"
+            data-placeholder="Rechercher un ustensile" aria-label="Text input with dropdown button">
+          <div class="input-group-append">
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+        </div>
+        <div class="list"></div>
+      </div>
+
     </div>
 
   </section>
@@ -66,3 +87,4 @@
 <script src="./scripts/factory/recipes-card.js"></script>
 <script src="./scripts/index.js"></script>
 <script src="./scripts/features/main-research.js"></script>
+<script src="./scripts/utils/combobox.js"></script>
