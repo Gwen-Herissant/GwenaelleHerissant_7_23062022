@@ -1,3 +1,5 @@
+let recipes = null;
+
 async function getRecipes() {
 
   let response = await fetch('../data/recipes.json');
@@ -9,9 +11,7 @@ async function getRecipes() {
     alert("HTTP-Error: " + response.status);
   }
 
-  return {
-    recipes: json.recipes
-  }
+  return json.recipes
 
 }
 
@@ -26,7 +26,7 @@ async function displayRecipes(recipes) {
 };
 
 async function init() {
-    const { recipes } = await getRecipes();
+    recipes = await getRecipes();
 
     document.querySelector('.search-btn').addEventListener('click', () => {
       searchDisplay(recipes);
@@ -34,6 +34,17 @@ async function init() {
     document.querySelector('.search-bar').addEventListener('keyup', () => {
       searchDisplay(recipes);
     });
+    document.querySelectorAll('.combobox input, .combobox .fa-chevron-down').forEach(dropdown => {
+      dropdown.addEventListener('click', (e) => {
+        let combo = e.target.closest('.combobox');
+        if (combo.classList.contains('combobox--open')) {
+          closeCombobox(combo);
+        } else {
+          openCombobox(combo); 
+        }
+        
+      })
+    })
 
     displayRecipes(recipes);
 }
@@ -44,7 +55,7 @@ init();
 function searchDisplay(recipes) {
   if (search.value.length >= 3) {
     let results = mainSearch(recipes);
-    console.log(results);
+    //console.log(results);
     displayRecipes(results);
   } else if (search.value.length == 0) {
     displayRecipes(recipes);
