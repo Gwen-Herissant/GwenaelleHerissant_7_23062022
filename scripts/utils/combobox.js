@@ -88,16 +88,3 @@ function initCombobox() {
 
 initCombobox();
 
-//Combobox Search
-
-const input = document.querySelectorAll('.form-control');
-
-function comboboxSearch(element, filteredElementList) {
-  let comboboxResults = [];
-  for (let element of filteredElementList) {
-    if (element.toLowerCase().includes(input.value.toLowerCase())) {
-      comboboxResults.push(element);
-    }
-  }
-}
-
