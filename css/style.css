@@ -175,6 +175,10 @@ h1 {
   padding: 5px;
 }
 
+.combobox .list span.hide {
+  display: none;
+}
+
 .combobox.combobox--open .list {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
