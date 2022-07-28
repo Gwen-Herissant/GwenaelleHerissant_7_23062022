@@ -1,4 +1,5 @@
 let recipes = null;
+let filteredRecipes = null;
 
 async function getRecipes() {
 
@@ -28,23 +29,15 @@ async function displayRecipes(recipes) {
 async function init() {
     recipes = await getRecipes();
 
+    filteredRecipes = JSON.parse(JSON.stringify(recipes));
+
     document.querySelector('.search-btn').addEventListener('click', () => {
       searchDisplay(recipes);
     });
     document.querySelector('.search-bar').addEventListener('keyup', () => {
       searchDisplay(recipes);
     });
-    document.querySelectorAll('.combobox input, .combobox .fa-chevron-down').forEach(dropdown => {
-      dropdown.addEventListener('click', (e) => {
-        let combo = e.target.closest('.combobox');
-        if (combo.classList.contains('combobox--open')) {
-          closeCombobox(combo);
-        } else {
-          openCombobox(combo); 
-        }
-        
-      })
-    })
+    
 
     displayRecipes(recipes);
 }
@@ -54,9 +47,8 @@ init();
 
 function searchDisplay(recipes) {
   if (search.value.length >= 3) {
-    let results = mainSearch(recipes);
-    //console.log(results);
-    displayRecipes(results);
+    filteredRecipes = mainSearch(recipes);
+    displayRecipes(filteredRecipes);
   } else if (search.value.length == 0) {
     displayRecipes(recipes);
   }
