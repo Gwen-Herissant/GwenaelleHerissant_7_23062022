@@ -37,6 +37,10 @@ function createDataList(recipes, element) {
 function openCombobox(element, filteredRecipes) {
   let list = element.querySelector('.list');
 
+  document.querySelectorAll('.combobox').forEach(combobox => {
+    combobox.classList.remove('combobox--open');
+  })
+
   let input = element.querySelector('.form-control');
   let placeholder = input.placeholder;
   input.placeholder = input.dataset.placeholder;
@@ -44,6 +48,12 @@ function openCombobox(element, filteredRecipes) {
   element.classList.add('combobox--open');
 
   createDataList(filteredRecipes, element);
+
+  document.querySelectorAll('.combobox .list span').forEach(span => {
+  span.addEventListener('click', (e) => {
+    addTag(e.target);
+  });
+  })
 }
 
 function closeCombobox(element) {
@@ -54,6 +64,14 @@ function closeCombobox(element) {
   element.classList.remove('combobox--open');
 }
 
+function addTag(element) {
+  document.querySelector('.tags').innerHTML += `
+    <div class="single-tag d-flex align-items-center rounded mr-2 mb-2" data-type="${element.closest('.combobox').dataset.type}">
+      <p class="tag-text lato-700 text-white">${element.innerHTML}</p>
+      <button class="btn tag-btn mb-1"><i class="close-icon text-white fa-regular fa-circle-xmark"></i></button>
+    </div>
+  `;
+}
 
 function initCombobox() {
 
@@ -67,7 +85,6 @@ function initCombobox() {
       } else {
         openCombobox(combo, filteredRecipes); 
       }
-      
     })
   });
 
@@ -82,6 +99,14 @@ function initCombobox() {
         }
       }
     })
+  })
+
+  document.addEventListener('click', (e) => {
+    if(!e.target.classList.contains('.combobox') && e.target.closest('.combobox') == null) {
+      document.querySelectorAll('.combobox').forEach(combobox => {
+        combobox.classList.remove('combobox--open');
+      })
+    }
   })
 
 }
