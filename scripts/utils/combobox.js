@@ -1,3 +1,5 @@
+let tagList = [];
+
 function createDataList(recipes, element) {
 
   let elementList = [];
@@ -21,7 +23,6 @@ function createDataList(recipes, element) {
   } 
 
   let filteredElementList = [...new Set(elementList)];
-  //console.log(filteredElementList);
 
   let list = element.querySelector('.list');
   list.innerHTML = '';
@@ -35,7 +36,6 @@ function createDataList(recipes, element) {
 }
 
 function openCombobox(element, filteredRecipes) {
-  let list = element.querySelector('.list');
 
   document.querySelectorAll('.combobox').forEach(combobox => {
     combobox.classList.remove('combobox--open');
@@ -50,9 +50,10 @@ function openCombobox(element, filteredRecipes) {
   createDataList(filteredRecipes, element);
 
   document.querySelectorAll('.combobox .list span').forEach(span => {
-  span.addEventListener('click', (e) => {
-    addTag(e.target);
-  });
+    span.addEventListener('click', (e) => {
+      addTag(e.target);
+      closeCombobox(element);
+    });
   })
 }
 
@@ -65,12 +66,40 @@ function closeCombobox(element) {
 }
 
 function addTag(element) {
-  document.querySelector('.tags').innerHTML += `
+   let tag = `
     <div class="single-tag d-flex align-items-center rounded mr-2 mb-2" data-type="${element.closest('.combobox').dataset.type}">
       <p class="tag-text lato-700 text-white">${element.innerHTML}</p>
       <button class="btn tag-btn mb-1"><i class="close-icon text-white fa-regular fa-circle-xmark"></i></button>
     </div>
   `;
+  
+  document.querySelector('.tags').innerHTML += tag;
+  tagList.push({type:element.closest('.combobox').dataset.type, value:element.innerHTML});
+
+  filterByTags(filteredRecipes);
+
+  document.querySelectorAll('.single-tag .tag-btn').forEach(tagBtn => tagBtn.addEventListener('click', (e) => {
+    removeTag(e.target.closest('.single-tag'));
+  }));
+}
+
+function filterByTags() {
+
+  tagList.forEach(tag => {
+    if(tag.type === 'ingrédients') {
+      filteredRecipes = filteredRecipes.filter(recipe => recipe.ingredients.some(ingredient => ingredient.ingredient == tag.value));
+    } else if (tag.type === 'appareils') {
+      filteredRecipes = filteredRecipes.filter(recipe => recipe.appliance == tag.value);
+    } else if (tag.type === 'ustensiles') {
+      filteredRecipes = filteredRecipes.filter(recipe => recipe.ustensils.some(ustensil => ustensil == tag.value));
+    }
+  })
+
+  displayRecipes(filteredRecipes);
+}
+
+function removeTag(element) {
+  element.remove();
 }
 
 function initCombobox() {
