@@ -67,7 +67,7 @@ function closeCombobox(element) {
 
 function addTag(element) {
    let tag = `
-    <div class="single-tag d-flex align-items-center rounded mr-2 mb-2" data-type="${element.closest('.combobox').dataset.type}">
+    <div class="single-tag d-flex align-items-center rounded mr-2 mb-2" data-type="${element.closest('.combobox').dataset.type}"  data-value="${element.innerHTML}">
       <p class="tag-text lato-700 text-white">${element.innerHTML}</p>
       <button class="btn tag-btn mb-1"><i class="close-icon text-white fa-regular fa-circle-xmark"></i></button>
     </div>
@@ -99,7 +99,13 @@ function filterByTags() {
 }
 
 function removeTag(element) {
+  let tagElement = {type: element.dataset.type, value: element.dataset.value};
+  tagList = tagList.filter(t => t.type != tagElement.type || t.value != tagElement.value);
+
   element.remove();
+  
+  filteredRecipes = mainSearch(recipes);
+  filterByTags();
 }
 
 function initCombobox() {
