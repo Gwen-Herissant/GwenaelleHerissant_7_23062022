@@ -1,3 +1,6 @@
+let recipes = null;
+let filteredRecipes = null;
+
 async function getRecipes() {
 
   let response = await fetch('../data/recipes.json');
@@ -9,10 +12,7 @@ async function getRecipes() {
     alert("HTTP-Error: " + response.status);
   }
 
-  console.log(json.recipes);
-  return {
-    recipes: json.recipes
-  }
+  return json.recipes
 
 }
 
@@ -27,8 +27,29 @@ async function displayRecipes(recipes) {
 };
 
 async function init() {
-    const { recipes } = await getRecipes();
+    recipes = await getRecipes();
+
+    filteredRecipes = JSON.parse(JSON.stringify(recipes));
+
+    document.querySelector('.search-btn').addEventListener('click', () => {
+      searchDisplay(recipes);
+    });
+    document.querySelector('.search-bar').addEventListener('keyup', () => {
+      searchDisplay(recipes);
+    });
+    
+
     displayRecipes(recipes);
 }
 
 init();
+
+
+function searchDisplay(recipes) {
+  if (search.value.length >= 3) {
+    filteredRecipes = mainSearch(recipes);
+    displayRecipes(filteredRecipes);
+  } else if (search.value.length == 0) {
+    displayRecipes(recipes);
+  }
+}

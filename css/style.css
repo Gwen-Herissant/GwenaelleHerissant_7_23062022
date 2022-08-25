@@ -16,7 +16,12 @@ body {
   margin: auto;
 }
 
-h1, h2, h3, h4, h5, p {
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
   padding: 0;
   margin: 0;
 }
@@ -69,7 +74,6 @@ h1 {
 
 .single-tag {
   padding: 0px 20px;
-  background-color: #3282F7;
 }
 
 .tag-text {
@@ -108,16 +112,19 @@ h1 {
   border-radius: 5px;
 }
 
-.combobox[data-type=ingrédients], 
+.single-tag[data-type=ingrédients],
+.combobox[data-type=ingrédients],
 .combobox[data-type=ingrédients] .form-control:focus {
   background-color: #3282F7;
 }
 
+.single-tag[data-type=appareils],
 .combobox[data-type=appareils],
 .combobox[data-type=appareils] .form-control:focus {
   background-color: #68D9A4;
 }
 
+.single-tag[data-type=ustensiles],
 .combobox[data-type=ustensiles],
 .combobox[data-type=ustensiles] .form-control:focus {
   background-color: #ED6454;
@@ -160,7 +167,7 @@ h1 {
 }
 
 .combobox .list {
-  display: none;  
+  display: none;
   flex-wrap: wrap;
   max-height: 397px;
   overflow-y: auto;
@@ -168,6 +175,10 @@ h1 {
 
 .combobox .list span {
   padding: 5px;
+}
+
+.combobox .list span.hide {
+  display: none;
 }
 
 .combobox.combobox--open .list {
@@ -210,7 +221,8 @@ h1 {
   border-bottom: none;
 }
 
-.card-header h5, .card-header p {
+.card-header h5,
+.card-header p {
   font-size: 18px;
 }
 
@@ -254,10 +266,11 @@ h1 {
 /* Mobile */
 @media (max-width: 768px) {
   #results-section {
-  display: block;
+    display: block;
   }
 
-  .combobox, .combobox.combobox--open {
+  .combobox,
+  .combobox.combobox--open {
     width: auto;
   }
 
