@@ -245,6 +245,11 @@ h1 {
   text-overflow: ellipsis; */
 }
 
+.no-results {
+  font-size: 30px;
+  color: #C7BEBE;
+  white-space: nowrap;
+}
 
 
 /* Large Tablet */

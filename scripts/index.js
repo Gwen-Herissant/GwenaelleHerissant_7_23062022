@@ -49,6 +49,10 @@ function searchDisplay(recipes) {
   if (search.value.length >= 3) {
     filteredRecipes = mainSearch(recipes);
     displayRecipes(filteredRecipes);
+    if(filteredRecipes.length === 0) {
+      console.log("nothing to display");
+      document.querySelector('#results-section').innerHTML = "<p class='no-results dmsans-700'>Aucun résultat ne correspond à vôtre recherche.<p/>";
+    }
   } else if (search.value.length == 0) {
     displayRecipes(recipes);
   }
