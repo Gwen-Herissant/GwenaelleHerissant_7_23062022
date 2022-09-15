@@ -49,6 +49,11 @@ function openCombobox(element, filteredRecipes) {
 
   createDataList(filteredRecipes, element);
 
+  if (search.value.length === 0) {
+    console.log('pas de recherche');
+    createDataList(recipes, element);
+  }
+
   document.querySelectorAll('.combobox .list span').forEach(span => {
     span.addEventListener('click', (e) => {
       addTag(e.target);
