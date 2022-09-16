@@ -3,15 +3,7 @@ const search = document.querySelector('.search-bar');
 function mainSearch(recipes) {
   let results = [];
 
-  recipes.filter(recipe => {
-    if (recipe.name.toLowerCase().includes(search.value.toLowerCase())) {
-      results.push(recipe);
-    } else if (recipe.description.toLowerCase().includes(search.value.toLowerCase())) {
-      results.push(recipe);
-    } else if (recipe.ingredients.some(ingredient => ingredient.ingredient.toLowerCase().includes(search.value.toLowerCase()))) {
-      results.push(recipe);
-    }
-  })
+  results = recipes.filter(recipe => recipe.name.toLowerCase().includes(search.value.toLowerCase()) || recipe.description.toLowerCase().includes(search.value.toLowerCase()) || recipe.ingredients.some(ingredient => ingredient.ingredient.toLowerCase().includes(search.value.toLowerCase())));
 
   return results;
 

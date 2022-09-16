@@ -49,9 +49,9 @@ function openCombobox(element, filteredRecipes) {
 
   createDataList(filteredRecipes, element);
 
-  if (search.value.length === 0) {
-    createDataList(recipes, element);
-  }
+  // if (search.value.length === 0) {
+  //   createDataList(recipes, element);
+  // }
 
   document.querySelectorAll('.combobox .list span').forEach(span => {
     span.addEventListener('click', (e) => {
@@ -81,6 +81,7 @@ function addTag(element) {
   tagList.push({type:element.closest('.combobox').dataset.type, value:element.innerHTML});
 
   filterByTags(filteredRecipes);
+  displayRecipes(filteredRecipes);
 
   document.querySelectorAll('.single-tag .tag-btn').forEach(tagBtn => tagBtn.addEventListener('click', (e) => {
     removeTag(e.target.closest('.single-tag'));
@@ -99,7 +100,6 @@ function filterByTags() {
     }
   })
 
-  displayRecipes(filteredRecipes);
 }
 
 function removeTag(element) {
@@ -110,6 +110,7 @@ function removeTag(element) {
   
   filteredRecipes = mainSearch(recipes);
   filterByTags();
+  displayRecipes(filteredRecipes);
 }
 
 function initCombobox() {
