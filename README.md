@@ -2,6 +2,8 @@
 
 A recipe search platform with a custom-built search algorithm, benchmarked for performance, as part of a front-end development training program.
 
+🔗 **[Live Demo](https://gwen-herissant.github.io/GwenaelleHerissant_7_23062022/)**
+
 ## Project Overview
 
 This project was completed as part of a structured front-end development curriculum. The challenge was to design and implement an efficient search algorithm for a recipe platform, capable of filtering through a JSON dataset in real time.
