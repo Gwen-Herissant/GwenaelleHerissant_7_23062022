@@ -3,7 +3,7 @@ let filteredRecipes = null;
 
 async function getRecipes() {
 
-  let response = await fetch('../data/recipes.json');
+  let response = await fetch('./data/recipes.json');
   let json;
 
   if(response.ok) {
